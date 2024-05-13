@@ -209,6 +209,23 @@ main {
     background-color: rgba(0,0,0,0.4);
 }
 
+.about-modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    height: 60vh;
+    width: 40%;
+    background-color: #fefefed8;
+    border: 1px solid #888;
+    border-radius: 10px;
+}
+
+.about-modal-content h1 {
+    margin-bottom: 20px;
+}
+
 .modal-content {
     position: fixed;
     top: 50%;
@@ -217,7 +234,7 @@ main {
     padding: 20px;
     height: 51vh;
     width: 25%;
-    background-color: #fefefec0;
+    background-color: #fefefed8;
     border: 1px solid #888;
     border-radius: 10px;
 }
