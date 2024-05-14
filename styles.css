@@ -217,7 +217,7 @@ main {
     padding: 20px;
     height: 60vh;
     width: 40%;
-    background-color: #fefefed8;
+    background-color: #fefefef3;
     border: 1px solid #888;
     border-radius: 10px;
 }
@@ -234,7 +234,7 @@ main {
     padding: 20px;
     height: 51vh;
     width: 25%;
-    background-color: #fefefed8;
+    background-color: #fefefef3;
     border: 1px solid #888;
     border-radius: 10px;
 }
