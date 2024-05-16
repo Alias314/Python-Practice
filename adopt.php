@@ -22,8 +22,13 @@
                 <h1><span style="color: #000000;">FUR</span><span style="color: #5F737B;">PAMILYA</span></h1>
             </div>
         </a>
+
         
         <div id="homepage-navigation-buttons">
+            <div id="homepage-favorites">
+                <img src="images\heart.png" alt="">
+                <p>Favorites</p>
+            </div>
             <div class="vertical-divider"></div>
             <button id="about">About</button>
             <a href="adopt.php">
@@ -60,8 +65,33 @@
                 <h1>Login</h1>
                 <input type="email" id="email" name="email", placeholder="Email"><br>
                 <input type="password" id="password" name="password" placeholder="Password"><br>
-                <input type="submit" value="Log In" id="login-button">
-                <a href="">Need an account?</a>
+                <input type="submit" value="Login" id="login-button">
+                <a href="" id="open-signup">Don't have an account?</a>
+                <a href="">Forgot Password?</a>
+            </form><hr>
+            <div id="social-media-buttons">
+                <a href="">
+                    <img id="facebook-favicon" src="images/facebook-favicon.png">
+                </a>
+                <a href="">
+                    <img id="gmail-favicon" src="images/gmail-favicon.png">
+                </a>
+            </div>
+            <!-- display: "No such account exists!" message here -->    
+        </div>
+    </div>
+
+
+    <div id="signup-modal" class="modal">
+        <div class="modal-content" id="signup-modal-content">
+            <span id="close-signup" class="close">&times;</span>
+            <form>
+                <h1>Sign up</h1>
+                <input type="email" id="email" name="email", placeholder="Email"><br>
+                <input type="password" id="password" name="password" placeholder="Password"><br>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password"><br>
+                <input type="submit" value="Sign Up" id="signup-button">
+                <a href="" id="open-signin">Already have an account?</a>
                 <a href="">Forgot Password?</a>
             </form><hr>
             <div id="social-media-buttons">

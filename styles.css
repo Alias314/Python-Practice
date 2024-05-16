@@ -48,6 +48,7 @@ main {
 
 #homepage-website-link {
     text-decoration: none;
+    margin-left: 10px;
 }
 
 #homepage-navigation-buttons {
@@ -56,7 +57,7 @@ main {
     justify-content: space-between;
     margin: 20px;
     height: 12vh;
-    width: 20vw;
+    width: 30vw;
 }
 
 #homepage-navigation-buttons button {
@@ -89,6 +90,33 @@ main {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+#homepage-favorites {
+    display: flex;
+    justify-content: center; /* Centers children horizontally */
+    align-items: center; /* Centers children vertically */
+    height: 38%; /* Adjust as needed */
+    background-color: #ffd3d3;
+    padding-right: 10px;
+    border: 2px solid #de8282;
+    border-width: 2.5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.4s ease-in-out, border 0.2s ease-in-out;
+}
+
+#homepage-favorites:hover {
+    transform: translateY(-2px);
+    background-color: #ff8989;
+    border: 2px solid #ffa5a5;
+}
+
+#homepage-favorites img {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 10px;
 }
 
 #homepage-doggy-adopt-me {
@@ -181,6 +209,10 @@ main {
     cursor: pointer;
 }
 
+#signup-button {
+    cursor: pointer;
+}
+
 #corner-design .circle {
     position: absolute;
     top: 71px;
@@ -244,7 +276,7 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    height: 60vh;
+    height: 62vh;
     width: 40%;
     background-color: #fefefef3;
     border: 1px solid #888;
@@ -262,6 +294,19 @@ main {
     transform: translate(-50%, -50%);
     padding: 20px;
     height: 51vh;
+    width: 25%;
+    background-color: #fefefef3;
+    border: 1px solid #888;
+    border-radius: 10px;
+}
+
+#signup-modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    height: 59vh;
     width: 25%;
     background-color: #fefefef3;
     border: 1px solid #888;
