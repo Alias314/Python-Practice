@@ -33,6 +33,7 @@ main {
     width: 100%;
     margin-bottom: 20px;
     border-radius: 7px;
+    cursor: pointer;
 } 
 
 #sidebar label {
@@ -48,7 +49,14 @@ main {
     font-size: 15px;
     font-weight: 600;
     border-radius: 10px;
+    background-color: #98b0b9;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.2s ease-in-out;
+}
+
+#apply-button:hover {
+    transform: translateY(-1px);
+    background-color: #b5c2c6;
 }
 
 #adopt-dog-menu {
@@ -66,6 +74,10 @@ main {
     margin-bottom: 20px;
 }
 
+#dog-location-sort select{
+    cursor: pointer;    
+}
+
 #dog-adopt-me-input {
     display: flex;
     justify-content: space-between;
@@ -73,10 +85,18 @@ main {
 }
 
 #sort-by-button {
-    width: 100px;
+    width: 160px;
     font-size: 17px;
     border-radius: 5px;
 }
+
+.favoriteButton {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.5s ease; 
+  }  
 
 .dog-options {
     font-size: 15px;
@@ -124,12 +144,15 @@ main {
 .dog-adopt-me-information-right {
     display: flex;
     flex-direction: column;
-    margin-left: 250px;
+}
+
+.dog-adopt-me-information-right p {
+    max-width: 90%;
 }
 
 .dog-adopt-me-information-right-buttons {
     display: flex;
-    margin-top: 50px;
+    margin-top: 35px;
 }
 
 .dog-adopt-me-information-right-buttons button {
@@ -142,19 +165,35 @@ main {
 }
 
 .dog-adopt-me-information-right-buttons :nth-child(1) {
-    border: 2px solid #cb9393;
+    border: 2px solid #ff8484;
+    border-width: 2.5px;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-style 0.5s ease-in-out;
+}
+
+.dog-adopt-me-information-right-buttons :nth-child(1):hover {
+    background-color: #ffd3d3;
+    color: black; 
+    border: 2px solid #ff9a9a;
 }
 
 .dog-adopt-me-information-right-buttons :nth-child(2) {
     color: white;
-    background-color: #5F737B;
+    background-color: #67757a;
     font-weight: 700;
     font-size: 19px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-style 0.3s ease-in-out;
+}
+
+.dog-adopt-me-information-right-buttons :nth-child(2):hover {
+    background-color: #768e94;
+    color: #FFFFFF; 
+    border: 2px solid #788183;
 }
 
 .doggy-woof-grrrr {
+    width: 400px;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .doggy-woof-grrrr > * {

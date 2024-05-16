@@ -29,3 +29,13 @@ signInButton.onclick = function() {
 spanSignIn.onclick = function() {
     modal.style.display = "none";
 }
+
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('favoriteButton')) {
+        event.target.style.backgroundColor = 'red';
+        
+        setTimeout(() => {
+            event.target.style.backgroundColor = 'white'; 
+        }, 1000);
+    }
+});

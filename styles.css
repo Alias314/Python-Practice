@@ -65,8 +65,16 @@ main {
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.548);
     font-weight: bold;
+    font-size: 16px;
     color: white;
     cursor: pointer;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+}
+
+#homepage-navigation-buttons button:hover {
+    background-color: #748c96;
+    transform: translateY(-2px);
 }
 
 #homepage-main-image {
@@ -150,14 +158,27 @@ main {
 }
 
 #homepage-doggy-adopt-me-description button {
-    margin: 20px 0 0 0;
-    padding: 10px 20px 10px 20px;
-    background-color: #5F737B;
+    margin: 20px 0 5px 0;
+    padding: 20px 30px 20px 30px;
+    background-color: #f6dc4a;
     border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.548);
+    font-size: 25px;
+    font-family: arial;
+    border: 2px solid rgba(123, 125, 0, 0.548);
     font-weight: bold;
     cursor: pointer;
     color: white;
+    position: relative; /* Ensure the button has a position */
+    transition: transform 0.3s ease-in-out !important;
+}
+
+#homepage-doggy-adopt-me-description button:hover {
+    transform: translateY(-3px); /* Move the button up by 10px on hover */
+    background-color: #ffe46c;
+}
+
+#login-button {
+    cursor: pointer;
 }
 
 #corner-design .circle {
