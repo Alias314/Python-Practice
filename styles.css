@@ -29,6 +29,8 @@ main {
     align-items: center;
     height: 12vh;
     margin: 10px;
+    z-index: 3;
+    cursor: pointer;
 }
 
 #homepage-logo h1 {
@@ -42,6 +44,10 @@ main {
     display: flex;
     height: 70px;
     width: 70px;
+}
+
+#homepage-website-link {
+    text-decoration: none;
 }
 
 #homepage-navigation-buttons {
@@ -60,6 +66,7 @@ main {
     border: 1px solid rgba(0, 0, 0, 0.548);
     font-weight: bold;
     color: white;
+    cursor: pointer;
 }
 
 #homepage-main-image {
@@ -149,6 +156,7 @@ main {
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.548);
     font-weight: bold;
+    cursor: pointer;
     color: white;
 }
 
