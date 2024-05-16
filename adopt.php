@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="adopt_page_styles.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="adopt.css">
+    <link rel="icon" href="images\website_logo.png">
+    <title>FurPamilya</title>
 </head>
 <body>
     <header>
-        <div id="homepage-logo">
-            <img src="images/website_logo.png">
-            <h1><span style="color: #000000;">FUR</span><span style="color: #5F737B;">PAMILYA</span></h1>
-        </div>
+        <a id="homepage-website-link" href="index.php">
+            <div id="homepage-logo">
+                <img src="images/website_logo.png">
+                <h1><span style="color: #000000;">FUR</span><span style="color: #5F737B;">PAMILYA</span></h1>
+            </div>
+        </a>
         
         <div id="homepage-navigation-buttons">
             <div class="vertical-divider"></div>
             <button id="about">About</button>
-            <a href="index.html">
+            <a href="index.php">
                 <button>Home</button>
             </a>
             <button id="sign-in">Sign In</button>
