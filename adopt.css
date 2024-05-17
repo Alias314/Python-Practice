@@ -171,7 +171,7 @@ main {
 }
 
 .dog-adopt-me-information-right-buttons :nth-child(1):hover {
-    background-color: #ffd3d3;
+    background-color: #ff8989 !important;
     color: black; 
     border: 1px solid #ffb5b5;
 }

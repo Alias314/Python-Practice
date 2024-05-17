@@ -103,11 +103,11 @@ main {
     border-width: 2.5px;
     border-radius: 10px;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out, background-color 0.4s ease-in-out, border 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, background-color 0.4s ease-in-out, border 0.2s ease-in-out !important;
 }
 
 #homepage-favorites:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     background-color: #ff8989;
     border: 2px solid #ffa5a5;
 }
@@ -287,6 +287,49 @@ main {
     margin-bottom: 20px;
 }
 
+.fav-modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    height: 62vh;
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border: 1px solid #888;
+    border-radius: 10px;
+}
+
+.fav-modal-content h1 {
+    margin-bottom: 20px;
+}
+
+.fav-modal-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Add margin to separate table from header */
+}
+
+/* Apply styles to table rows */
+.fav-modal-content tr {
+    background-color: #f2f2f2;
+}
+
+/* Apply styles to table cells */
+.fav-modal-content td {
+    padding: 8px;
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
+/* Apply styles to table header cells */
+.fav-modal-content th {
+    padding: 8px;
+    border: 1px solid #dddddd;
+    background-color: #e9e9e9;
+    text-align: left;
+}
+
 .modal-content {
     position: fixed;
     top: 50%;
@@ -311,6 +354,11 @@ main {
     background-color: #fefefef3;
     border: 1px solid #888;
     border-radius: 10px;
+}
+
+.error-message {
+    text-align: center;
+    color: darkred;
 }
 
 .modal-content form {

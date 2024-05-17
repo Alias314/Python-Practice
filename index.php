@@ -8,12 +8,15 @@
     <title>FurPamilya</title>
 </head>
 
+<body>
+
     <?php 
         include('db.php');
-        // include('process.php'); 
+        include('signup.php');
+        include('login.php'); 
+        include('process.php');
     ?>  
 
-<body>
     <header>
         <a id="homepage-website-link" href="index.php">
             <div id="homepage-logo">
@@ -32,7 +35,7 @@
             <a href="adopt.php">
                 <button>Adopt</button>
             </a>
-            <button id="sign-in">Login</button>
+            <button id="login-logout">Login</button>
         </div>
     </header>
     <div id="about-modal" class="modal">
@@ -54,27 +57,44 @@
             </p>
         </div>
     </div>
-
+    
+    <div id="fav-modal" class="modal">
+        <div class="fav-modal-content">
+            <span id="close-fav" class="close">&times;</span>
+            <h1>Favorites</h1>
+            <table align = "center" border = "1" cellpadding = "3" cellspacing = "3" width="40%">  
+                <tr>  
+                <td>Name</td>
+                <td>Breed</td>  
+                <td>Gender</td>
+                <td>Size</td>
+                <td>Age</td>
+                <td>Options</td>
+                </tr>  
+                <?php    
+                    display($conn);
+                ?>    
+            </table> 
+        </div>
+    </div>
+    
     <div id="signin-modal" class="modal">
         <div class="modal-content">
             <span id="close-signin" class="close">&times;</span>
-            <form>
+            <form id="login-form">
                 <h1>Login</h1>
-                <input type="email" id="email" name="email", placeholder="Email"><br>
-                <input type="password" id="password" name="password" placeholder="Password"><br>
+                <input type="email" id="email" name="email" placeholder="Email" required><br>
+                <input type="password" id="password" name="password" placeholder="Password" required><br>
                 <input type="submit" value="Login" id="login-button">
                 <a href="" id="open-signup">Don't have an account?</a>
-                <a href="">Forgot Password?</a>
-            </form><hr>
+                <a href="#">Forgot Password?</a>
+            </form>
+            <hr>
             <div id="social-media-buttons">
-                <a href="">
-                    <img id="facebook-favicon" src="images/facebook-favicon.png">
-                </a>
-                <a href="">
-                    <img id="gmail-favicon" src="images/gmail-favicon.png">
-                </a>
+                <a href="#"><img id="facebook-favicon" src="images/facebook-favicon.png" alt="Facebook"></a>
+                <a href="#"><img id="gmail-favicon" src="images/gmail-favicon.png" alt="Gmail"></a>
             </div>
-            <!-- display: "No such account exists!" message here -->    
+            <div id="login-message"></div> <!-- Message area for displaying login status -->
         </div>
     </div>
 
@@ -82,15 +102,16 @@
     <div id="signup-modal" class="modal">
         <div class="modal-content" id="signup-modal-content">
             <span id="close-signup" class="close">&times;</span>
-            <form>
+            <form id="signup-form">
                 <h1>Sign up</h1>
-                <input type="email" id="email" name="email", placeholder="Email"><br>
-                <input type="password" id="password" name="password" placeholder="Password"><br>
-                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password"><br>
+                <input type="email" id="user-email" name="email" placeholder="Email" required><br>
+                <input type="password" id="user-password" name="password" placeholder="Password" required><br>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required><br>
                 <input type="submit" value="Sign Up" id="signup-button">
                 <a href="" id="open-signin">Already have an account?</a>
                 <a href="">Forgot Password?</a>
-            </form><hr>
+            </form>
+            <hr>
             <div id="social-media-buttons">
                 <a href="">
                     <img id="facebook-favicon" src="images/facebook-favicon.png">
@@ -99,6 +120,7 @@
                     <img id="gmail-favicon" src="images/gmail-favicon.png">
                 </a>
             </div>
+            <div id="message"></div> <!-- Message area -->
         </div>
     </div>
 
@@ -136,5 +158,8 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="login.js"></script>
+    <script src="signup.js"></script>
+
 </body>
 </html>
