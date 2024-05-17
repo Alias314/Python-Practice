@@ -11,8 +11,13 @@
 
     <?php 
         include('db.php');
-        // include('process.php'); 
+        include('signup.php');
+        include('login.php'); 
+        include('favorites.php'); 
+        include('process.php');
     ?>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <body>
     <header>
@@ -34,7 +39,7 @@
             <a href="adopt.php">
                 <button>Adopt</button>
             </a>
-            <button id="sign-in">Login</button>
+            <button id="login-logout">Login</button>
         </div>
     </header>
 
@@ -58,42 +63,59 @@
         </div>
     </div>
 
-    <div id="signin-modal" class="modal">
-        <div class="modal-content">
-            <span id="close-signin" class="close">&times;</span>
-            <form>
-                <h1>Login</h1>
-                <input type="email" id="email" name="email", placeholder="Email"><br>
-                <input type="password" id="password" name="password" placeholder="Password"><br>
-                <input type="submit" value="Login" id="login-button">
-                <a href="" id="open-signup">Don't have an account?</a>
-                <a href="">Forgot Password?</a>
-            </form><hr>
-            <div id="social-media-buttons">
-                <a href="">
-                    <img id="facebook-favicon" src="images/facebook-favicon.png">
-                </a>
-                <a href="">
-                    <img id="gmail-favicon" src="images/gmail-favicon.png">
-                </a>
-            </div>
-            <!-- display: "No such account exists!" message here -->    
+    <div id="fav-modal" class="modal">
+        <div class="fav-modal-content">
+            <span id="close-fav" class="close">&times;</span>
+            <h1>Favorites</h1>
+            <table align = "center" border = "1" cellpadding = "3" cellspacing = "3" width="40%">  
+                <tr>  
+                <td>Name</td>
+                <td>Breed</td>  
+                <td>Gender</td>
+                <td>Size</td>
+                <td>Age</td>
+                <td>Options</td>
+                </tr>  
+                <?php    
+                    display($conn);
+                ?>    
+            </table> 
         </div>
     </div>
 
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-signin" class="close">&times;</span>
+            <form id="login-form">
+                <h1>Login</h1>
+                <input type="email" id="email" name="email" placeholder="Email" required><br>
+                <input type="password" id="password" name="password" placeholder="Password" required><br>
+                <input type="submit" value="Login" id="login-button">
+                <a href="" id="open-signup">Don't have an account?</a>
+                <a href="#">Forgot Password?</a>
+            </form>
+            <hr>
+            <div id="social-media-buttons">
+                <a href="#"><img id="facebook-favicon" src="images/facebook-favicon.png" alt="Facebook"></a>
+                <a href="#"><img id="gmail-favicon" src="images/gmail-favicon.png" alt="Gmail"></a>
+            </div>
+            <div id="login-message"></div> <!-- Message area for displaying login status -->
+        </div>
+    </div>
 
     <div id="signup-modal" class="modal">
         <div class="modal-content" id="signup-modal-content">
             <span id="close-signup" class="close">&times;</span>
-            <form>
+            <form id="signup-form">
                 <h1>Sign up</h1>
-                <input type="email" id="email" name="email", placeholder="Email"><br>
-                <input type="password" id="password" name="password" placeholder="Password"><br>
-                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password"><br>
+                <input type="email" id="user-email" name="email" placeholder="Email" required><br>
+                <input type="password" id="user-password" name="password" placeholder="Password" required><br>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required><br>
                 <input type="submit" value="Sign Up" id="signup-button">
                 <a href="" id="open-signin">Already have an account?</a>
                 <a href="">Forgot Password?</a>
-            </form><hr>
+            </form>
+            <hr>
             <div id="social-media-buttons">
                 <a href="">
                     <img id="facebook-favicon" src="images/facebook-favicon.png">
@@ -102,6 +124,7 @@
                     <img id="gmail-favicon" src="images/gmail-favicon.png">
                 </a>
             </div>
+            <div id="message"></div> <!-- Message area -->
         </div>
     </div>
 
@@ -182,7 +205,7 @@
                                 </div>
 
                                 <div class="dog-adopt-me-information-right-buttons">
-                                    <button class="favoriteButton">Add to favorites</button>
+                                    <button class="favoriteButton" data-pet-id="1" data-pet-name="Jake the Dog" data-pet-breed="Aspin" data-pet-gender="Male" data-pet-size="Small" data-pet-age="1">Add to favorites</button>
                                     <button>MEET THIS PET</button>
                                 </div>
                             </div>
@@ -211,7 +234,7 @@
                                 </div>
 
                                 <div class="dog-adopt-me-information-right-buttons">
-                                    <button class="favoriteButton">Add to favorites</button>
+                                    <button class="favoriteButton" data-pet-id="2" data-pet-name="Mr. Tinkles" data-pet-breed="Persian" data-pet-gender="Male" data-pet-size="Small" data-pet-age="2">Add to favorites</button>
                                     <button>MEET THIS PET</button>
                                 </div>
                             </div>
@@ -240,7 +263,7 @@
                                 </div>
 
                                 <div class="dog-adopt-me-information-right-buttons">
-                                    <button class="favoriteButton">Add to favorites</button>
+                                    <button class="favoriteButton" data-pet-id="3" data-pet-name="Megamind" data-pet-breed="Sphynx" data-pet-gender="Female" data-pet-size="Small" data-pet-age="4">Add to favorites</button>
                                     <button>MEET THIS PET</button>
                                 </div>
                             </div>
@@ -251,6 +274,39 @@
         </div>
     </main>
 
+    <script>
+        $(document).ready(function(){
+            $(".favoriteButton").click(function(){
+                var $this = $(this);
+                var petData = {
+                    pet_id: $this.data("pet-id"),
+                    pet_name: $this.data("pet-name"),
+                    pet_breed: $this.data("pet-breed"),
+                    pet_gender: $this.data("pet-gender"),
+                    pet_size: $this.data("pet-size"),
+                    pet_age: $this.data("pet-age")
+                };
+
+                $.post("favorites.php", petData, function(response){
+                    console.log("Response from server:", response);
+
+                    if (response === "Pet added to favorites!") {
+                        console.log("Pet added to favorites!");
+                        $this.text("Remove favorite");
+                        $this.addClass("favorite");
+                    } else if (response === "Pet removed from favorites!") {
+                        console.log("Pet removed from favorites!");
+                        $this.text("Add to favorites");
+                        $this.removeClass("favorite");
+                    }
+                });
+            });
+        });
+    </script>
+
     <script src="script.js"></script>
+    <script src="login.js"></script>
+    <script src="signup.js"></script>
+
 </body>
 </html>
